@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "5000:5000"
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGODB_USER=${MONGODB_USER}
+      - MONGODB_PASSWORD=${MONGODB_PASSWORD}
+      - MONGODB_DB=${MONGODB_DB}
+      
